@@ -1,0 +1,116 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.popup__container {
+  width: 430px;
+
+  height: 300px;
+
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.popup__form-title {
+  font-family: "Inter-Black", sans-serif;
+  font-size: 25px;
+  width: 330px;
+  margin: 0 36px;
+  padding: 34px 0 54px;
+  color: #070707;
+  line-height: 100%;
+  font-weight: 900;
+}
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__form-name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  width: 360px;
+  border: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
+
+.popup__form-button {
+  background-color: #000000;
+  border-radius: 2px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  max-width: 358px;
+  width: 100%;
+  height: 56px;
+}
+
+.popup__disabled {
+  background-color: #c4c4c4;
+  cursor: default;
+}
+
+.popup__button-close {
+  background-image: url(../images/CloseIcon.png);
+
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 350px;
+}
+
+.popup_opened {
+  display: flex;
+}
+.popup__image {
+  width: 433px;
+  height: 540px;
+}
+
+@media screen and (max-width: 320px) {
+  .popup__container {
+    width: 270px;
+    margin: 0;
+    align-content: center;
+  }
+  .popup__form-title {
+    width: 232px;
+    margin: 0;
+  }
+  .popup__form-name {
+    width: 238px;
+  }
+  .popup__form-occupation {
+    width: 238px;
+  }
+  .popup__form-button {
+    width: 238px;
+  }
+  .popup__button-close {
+    right: 300px;
+    top: 100px;
+  }
+
+  .popup__image {
+    width: 240px;
+    height: 299px;
+    left: 40px;
+  }
+}

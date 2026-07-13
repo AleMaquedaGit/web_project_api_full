@@ -1,0 +1,82 @@
+.card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  height: 361px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__trash_button {
+  border: none;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: url(../images/buttonTrash.png) center no-repeat;
+}
+
+.card__img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  max-height: 282px;
+  min-height: 282px;
+}
+
+.card__title {
+  display: flex;
+  justify-content: space-between;
+}
+.card__place {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin-top: 25px;
+  margin-left: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.card__like {
+  display: flex;
+  margin: auto;
+  width: 21px;
+  height: 19px;
+
+  background-image: url(../images/Vector.svg);
+}
+
+.card__like_active {
+  display: flex;
+  margin: auto;
+  width: 21px;
+  height: 19px;
+  background: url(../images/LikeActive.png);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    height: 361px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card__img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    max-height: 282px;
+    min-height: 282px;
+  }
+}
