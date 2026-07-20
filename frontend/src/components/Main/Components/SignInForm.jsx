@@ -1,5 +1,5 @@
 import "../../../blocks/SignInForm.css";
-import auth from "../../../../src/Utils/Auth";
+import auth from "../../../utils/Auth";
 import "../../../blocks/login.css";
 import { useState } from "react";
 import InfoToolTip from "./Popup/InfoToolTip/InfoToolTip";
