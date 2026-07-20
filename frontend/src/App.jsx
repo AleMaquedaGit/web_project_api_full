@@ -17,6 +17,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import MainApp from "./components/Main/MainApp";
 function App() {
+  //prueba de git
   return (
     <>
       <BrowserRouter>
