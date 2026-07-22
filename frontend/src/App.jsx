@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main/MainApp";
 import Popup from "./components/Main/Components/Popup/Popup";
-import api from "./utils/Api";
+import api from "./utils/Api.js";
 import SignInForm from "./components/Main/Components/SignInForm";
 import NavBar from "./components/Main/Components/NavBar/NavBar";
 import Login from "./components/Main/Components/Login";
