@@ -62,7 +62,7 @@
   color: #fff;
   padding: 0;
   cursor: pointer;
-  background-image: url(../images/Add\ Button.png);
+  background-image: url(../images/AddButton.png);
 }
 
 .popup_paragraph {
@@ -97,7 +97,7 @@
   grid-row: 1;
   grid-column: 4;
   background-color: #000;
-  background-image: url(../images/Edit\ Button.png);
+  background-image: url(../images/EditButton.png);
 }
 
 .popup__form-occupation {
@@ -139,7 +139,7 @@
     grid-row: 1;
     grid-column: 4;
     background-color: #000;
-    background-image: url(../images/Edit\ Button.png);
+    background-image: url(../images/EditButton.png);
   }
 
   @media screen and (max-width: 320px) {
