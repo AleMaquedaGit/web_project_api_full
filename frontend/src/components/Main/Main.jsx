@@ -1,10 +1,10 @@
 import Footer from "../Footer";
 import Popup from "./Components/Popup/Popup";
 import Header from "../Header";
-import { useState } from "react";
+
 import NewCard from "./Components/Popup/Newcard/NewCard";
 import Card from "./Components/Card/Card";
-import image from "../../images/Avatar.png";
+
 import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
 import ImagePopup from "../Main/Components/Popup/ImagePopup/ImagePopup";
@@ -15,8 +15,7 @@ import { useContext } from "react";
 export default function Main(props) {
   const userContext = useContext(currentUserContext);
   const { currentUser } = userContext;
-  const { onClose, popup, onOpen, cards, deleteCard, likeButton, fetchUser } =
-    props;
+  const { onClose, onOpen, cards, deleteCard, likeButton, fetchUser } = props;
 
   //Agregar en el arreglo de const "likebutton"
   // console.log( + cards);
@@ -36,7 +35,7 @@ export default function Main(props) {
 
   const HandleOpenPopup = () => {};
 
-  const [onoff, setOnOff] = useState(false);
+  //const [onoff, setOnOff] = useState(false);
 
   return (
     <main className="content">
@@ -94,7 +93,6 @@ export default function Main(props) {
             key={card._id}
           />
         ))}
-        {onoff && <Popup />}
       </section>
     </main>
   );

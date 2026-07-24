@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../../../../blocks/infoToolTip.css";
 import Popup from "../Popup";
 function InfoToolTip({ messagge, onClose, isSuccess }) {

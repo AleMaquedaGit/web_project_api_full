@@ -7,7 +7,6 @@ import InfoToolTip from "./Popup/InfoToolTip/InfoToolTip";
 function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [sign, setSign] = useState(false);
 
   const [popUpOpen, setpopUpOpen] = useState(false);
   const [popUpSuccess, setpopUpSuccess] = useState(false);
@@ -18,21 +17,21 @@ function SignInForm() {
     auth
       .signIn({ email, password })
 
-      .then((data) => {
-        setSign(true);
+      .then(() => {
+        //setSign(true);
         setpopUpOpen(true);
         setpopUpSuccess(true);
         setpopUpMessagge("Correcto! ya estás registrado");
       })
 
-      .catch((err) => {
-        setLogin(false);
+      .catch(() => {
+        //setLogin(false);
         setpopUpOpen(true);
         setpopUpSuccess(false);
         setpopUpMessagge("registro sin exito");
       });
   }
-  function handleClosePopUp(e) {
+  function handleClosePopUp() {
     setpopUpOpen(false);
   }
   return (

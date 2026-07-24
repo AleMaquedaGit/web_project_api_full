@@ -1,4 +1,4 @@
-import image from "../../../../images/Lago_Braies.png";
+//import image from "../../../../images/Lago_Braies.png";
 import ImagePopup from "../Popup/ImagePopup/ImagePopup";
 function Card(props) {
   const { onOpen } = props;

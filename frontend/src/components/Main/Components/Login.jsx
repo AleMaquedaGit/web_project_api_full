@@ -7,7 +7,7 @@ function Login() {
   // variable de estado (arriba del return JS )
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState(false);
+
   const navigate = useNavigate();
 
   const [popUpOpen, setpopUpOpen] = useState(false);
@@ -19,21 +19,21 @@ function Login() {
     auth
       .logIn({ email, password })
 
-      .then((data) => {
-        setLogin(true);
+      .then(() => {
+        //setLogin(true);
         setpopUpOpen(true);
         setpopUpSuccess(true);
         setpopUpMessagge("exito");
       })
 
-      .catch((err) => {
-        setLogin(false);
+      .catch(() => {
+        //setLogin(false);
         setpopUpOpen(true);
         setpopUpSuccess(false);
         setpopUpMessagge("Uy,algo salió mal,Porfavor inténtalo de nuevo");
       });
   }
-  function handleClosePopUp(e) {
+  function handleClosePopUp() {
     setpopUpOpen(false);
     if (popUpSuccess) {
       navigate("/main");

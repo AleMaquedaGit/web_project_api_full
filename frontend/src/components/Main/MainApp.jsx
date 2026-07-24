@@ -4,19 +4,17 @@ import Header from "../Header";
 import { useState } from "react";
 import NewCard from "./Components/Popup/Newcard/NewCard";
 import Card from "./Components/Card/Card";
-import image from "../../images/Avatar.png";
+
 import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
 import ImagePopup from "./Components/Popup/ImagePopup/ImagePopup";
-import currentUserContext from "../../CurrentUserContext/context";
-import { useContext } from "react";
+
 import { useEffect } from "react";
 import api from "../../utils/Api";
 import Main from "./Main";
 function MainApp() {
   const [cards, setCards] = useState([]);
-  const [count, setCount] = useState(0);
-  const [popup, setPopup] = useState(null);
+
   const [currentUser, setCurrentUser] = useState(null);
   const fetchUser = async () => {
     try {
@@ -49,13 +47,13 @@ function MainApp() {
   //console.log(cards);
 
   function onClose() {
-    setPopup(null);
+    //setPopup(null);
   }
 
   function onOpen(popup) {
-    setPopup(popup);
+    //setPopup(popup);
   }
-  const [texto, setTexto] = useState();
+
   //16-10-25 quite "alejandro maqueda" del parametro del useState
   async function handleAddCard(data) {
     console.log("esto en app" + data);
