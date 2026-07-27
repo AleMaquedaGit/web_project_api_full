@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../../../blocks/login.css";
 import InfoToolTip from "./Popup/InfoToolTip/InfoToolTip";
-import { auth } from "../../../utils/Auth";
+import { auth } from "../../../Utils/Auth";
 import { useNavigate } from "react-router-dom";
 function Login() {
   // variable de estado (arriba del return JS )
