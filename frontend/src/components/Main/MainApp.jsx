@@ -4,16 +4,18 @@ import Header from "../Header";
 import { useState } from "react";
 import NewCard from "./Components/Popup/Newcard/NewCard";
 import Card from "./Components/Card/Card";
-
+import CurrentUserContext from "../../CurrentUserContext/context";
 import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
 import ImagePopup from "./Components/Popup/ImagePopup/ImagePopup";
+import Main from "./Main";
 
 import { useEffect } from "react";
 import api from "../../utils/Api";
-import Main from "./Main";
+
 function MainApp() {
   const [cards, setCards] = useState([]);
+  const [popup, setPopup] = useState("");
 
   const [currentUser, setCurrentUser] = useState(null);
   const fetchUser = async () => {
@@ -47,11 +49,11 @@ function MainApp() {
   //console.log(cards);
 
   function onClose() {
-    //setPopup(null);
+    setPopup(null);
   }
 
   function onOpen(popup) {
-    //setPopup(popup);
+    setPopup(popup);
   }
 
   //16-10-25 quite "alejandro maqueda" del parametro del useState
@@ -59,8 +61,8 @@ function MainApp() {
     console.log("esto en app" + data);
     await api
       .addCard(data)
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
+      .then((NewCard) => {
+        setCards([NewCard, ...cards]);
       })
       .catch((error) => {
         console.error(error);
@@ -89,7 +91,7 @@ function MainApp() {
         .then((card) => {
           setCards((state) =>
             state.map((currentCard) =>
-              currentCard._id === card._id ? newCard : currentCard,
+              currentCard._id === card._id ? NewCard : currentCard,
             ),
           );
         })
@@ -120,7 +122,7 @@ function MainApp() {
   }
   return (
     <>
-      <currentUserContext.Provider
+      <CurrentUserContext.Provider
         value={{
           handleAddCard,
           deleteCard,
@@ -140,14 +142,14 @@ function MainApp() {
           likeButton={likeButton}
           fetchUser={fetchUser}
         />
-        <Footer setTexto={setTexto} />
+        <Footer />
 
         {popup && (
           <Popup title={popup.title} onClose={onClose}>
             {popup.children}
           </Popup>
         )}
-      </currentUserContext.Provider>
+      </CurrentUserContext.Provider>
     </>
   );
 
