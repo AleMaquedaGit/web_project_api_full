@@ -7,7 +7,7 @@ import Card from "./Components/Card/Card";
 
 import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
-import ImagePopup from "../Main/Components/Popup/ImagePopup/ImagePopup";
+import ImagePopup from "./Components/Popup/ImagePopup/ImagePopup";
 import currentUserContext from "../../CurrentUserContext/context";
 
 import { useContext } from "react";
