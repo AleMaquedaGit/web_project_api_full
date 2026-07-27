@@ -11,7 +11,7 @@ import ImagePopup from "./Components/Popup/ImagePopup/ImagePopup";
 import Main from "./Main";
 
 import { useEffect } from "react";
-import api from "../../utils/Api";
+import { api } from "../../utils/Api";
 
 function MainApp() {
   const [cards, setCards] = useState([]);
