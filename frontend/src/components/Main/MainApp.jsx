@@ -9,9 +9,8 @@ import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
 import ImagePopup from "./Components/Popup/ImagePopup/ImagePopup";
 import Main from "./Main";
-
-import { useEffect } from "react";
 import { api } from "../../utils/Api";
+import { useEffect } from "react";
 
 function MainApp() {
   const [cards, setCards] = useState([]);
