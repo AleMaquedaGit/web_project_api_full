@@ -42,7 +42,7 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: "https://se-register-api.en.tripleten-services.com/v1",
+  baseUrl: "https://api.miproyectotripleten.mooo.com",
   headers: {
     authorization: "06f1087a-ea72-4331-b20a-47ee42c926d9",
     "Content-Type": "application/json",
