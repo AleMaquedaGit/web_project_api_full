@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cards from "./routes/card.js";
 import users from "./routes/user.js";
+import cors from "cors";
 
 const app = express();
 app.use(cors());
