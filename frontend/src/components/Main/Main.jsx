@@ -16,6 +16,7 @@ export default function Main(props) {
   const userContext = useContext(currentUserContext);
   const { currentUser } = userContext;
   const { onClose, onOpen, cards, deleteCard, likeButton, fetchUser } = props;
+  //linea 18 agregué "handleLogout" 4/8/26
 
   //Agregar en el arreglo de const "likebutton"
   // console.log( + cards);

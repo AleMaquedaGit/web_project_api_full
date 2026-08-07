@@ -4,6 +4,14 @@ import cards from "./routes/card.js";
 import users from "./routes/user.js";
 
 const app = express();
+app.use(
+  cors({
+    origin: [
+      "http//localhost:3000",
+      "https://api.miproyectotripleten.mooo.com",
+    ],
+  }),
+);
 app.use(express.json());
 const PORT = 3000;
 await mongoose

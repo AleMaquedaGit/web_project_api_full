@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar></NavBar>
+        <Header></Header>
 
         <Routes>
           <Route path="/" element={<SignInForm />} />

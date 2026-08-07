@@ -1,9 +1,12 @@
 import React from "react";
-import image from "../images/Vector.png";
+
+import NavBar from "./Main/Components/NavBar/NavBar";
+
 const Header = () => {
+  console.log("Header renderizado");
   return (
     <header className="header">
-      <img className="header__vector" src={image} alt="vector" />
+      <NavBar></NavBar>
     </header>
   );
 };

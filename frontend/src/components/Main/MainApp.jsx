@@ -12,11 +12,15 @@ import Main from "./Main";
 import { api } from "../../Utils/Api";
 import { useEffect } from "react";
 
+//linea 14 agregada 4/8/26
 function MainApp() {
+  //const navigate = useNavigate();
+
   const [cards, setCards] = useState([]);
   const [popup, setPopup] = useState("");
 
   const [currentUser, setCurrentUser] = useState(null);
+
   const fetchUser = async () => {
     try {
       const current = await api.getCurrentUser(); //*** */
@@ -26,6 +30,12 @@ function MainApp() {
       console.error(err);
     }
   };
+
+  //const handleLogout = () => {
+  //localStorage.removeItem("token");
+  //  navigate("/login", { replace: true });
+  //};
+  //linea 29-34 agregada 4/8/26
 
   useEffect(() => {
     fetchUser();
@@ -140,6 +150,8 @@ function MainApp() {
           deleteCard={deleteCard}
           likeButton={likeButton}
           fetchUser={fetchUser}
+
+          //linea 151 agreguéhandleLogot 4/8/26
         />
         <Footer />
 
@@ -151,9 +163,8 @@ function MainApp() {
       </CurrentUserContext.Provider>
     </>
   );
-
-  //Aqui agregar async function "like button"
 }
+
 export default MainApp;
 
 // borrar node_modules(too large)

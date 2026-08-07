@@ -9,6 +9,18 @@
   padding: 45px 0 41px;
 }
 
+.header__logout {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.header__logout:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .header__vector {
     max-width: 130px;
