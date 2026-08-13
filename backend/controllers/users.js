@@ -1,4 +1,5 @@
 import User from "../models/users.js";
+import bcrypt from "bcrypt";
 
 export const getUsers =
   ("/",
@@ -52,15 +53,31 @@ export const deleteUsers = (req, res) => {
     });
 };
 
-export const createUser = (req, res) => {
-  const { name, about, avatar } = req.body;
+////////
+export const createUser = async (req, res, next) => {
+  try {
+    const { name, about, avatar, email, password } = req.body;
 
-  User.create({ name, about, avatar })
+    if (!email || !password) {
+      return res
+        .status(400)
+        .send({ message: "Email y password son obligatorios" });
+    }
 
-    .then((user) => {
-      res.status(201).send(user);
-    })
-    .catch((error) => {
-      res.status(500).send({ message: "server error", error: error });
+    const hash = await bcrypt.hash(password, 10);
+
+    const user = await User.create({
+      name, // si no vienen, el modelo aplica defaults
+      about,
+      avatar,
+      email,
+      password: hash,
     });
+
+    const data = user.toObject();
+    delete data.password;
+    res.status(201).send(data);
+  } catch (err) {
+    next(err);
+  }
 };
