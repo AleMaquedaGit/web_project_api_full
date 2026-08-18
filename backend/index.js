@@ -4,8 +4,16 @@ import cards from "./routes/card.js";
 import users from "./routes/user.js";
 import cors from "cors";
 
-const app = express();
-app.use(cors());
+//const app = express();
+//app.use(cors());
+
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "https://miproyectotripleten.mooo.com",
+  }),
+);
 
 app.use(express.json());
 const PORT = 3000;
