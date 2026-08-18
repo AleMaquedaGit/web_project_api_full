@@ -12,7 +12,7 @@ class Api {
       headers: this.headers,
     }).then((response) => {
       if (response.ok) {
-        return response.json(); //es un metodo
+        return response.json(); //es un metodo......
       }
       throw new Error("Error en la base de datos");
     });
