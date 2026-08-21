@@ -7,13 +7,16 @@ import {
   getUsersId,
   createUser,
   deleteUsers,
+  login,
 } from "../controllers/users.js";
 
 const usersRoute = express.Router();
 
+usersRoute.post("/signin", login);
+usersRoute.post("/", createUser);
 usersRoute.get("/", getUsers);
 usersRoute.get("/:id", getUsersId);
-usersRoute.post("/", createUser);
+
 usersRoute.delete("/:id", deleteUsers);
 
 export default usersRoute;

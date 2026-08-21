@@ -1,6 +1,47 @@
 import User from "../models/users.js";
 import bcrypt from "bcrypt";
 
+export const login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).send({
+        message: "Email y password son obligatorios",
+      });
+    }
+
+    const user = await User.findOne({ email }).select("+password");
+
+    if (!user) {
+      return res.status(401).send({
+        message: "Email o password incorrectos",
+      });
+    }
+
+    const isValidPassword = await bcrypt.compare(password, user.password);
+
+    if (!isValidPassword) {
+      return res.status(401).send({
+        message: "Email o password incorrectos",
+      });
+    }
+
+    res.status(200).send({
+      message: "Inicio de sesión exitoso",
+      user: {
+        _id: user._id,
+        name: user.name,
+        about: user.about,
+        avatar: user.avatar,
+        email: user.email,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const getUsers =
   ("/",
   (req, res) => {
