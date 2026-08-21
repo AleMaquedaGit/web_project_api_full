@@ -4,14 +4,20 @@ import cards from "./routes/card.js";
 import users from "./routes/user.js";
 import cors from "cors";
 
-//const app = express();
-//app.use(cors());
+const app = express();
+app.use(cors());
 
-const cors = require("cors");
+/*const cors = require("cors");
 
 app.use(
   cors({
     origin: "https://miproyectotripleten.mooo.com",
+  }),
+);
+*/
+app.use(
+  cors({
+    origin: ["http://localhost:5173/", "https://miproyectotripleten.mooo.com/"],
   }),
 );
 
