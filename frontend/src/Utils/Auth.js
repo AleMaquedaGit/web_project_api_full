@@ -22,7 +22,7 @@ class Auth {
   }
 
   logIn({ email, password }) {
-    return fetch(this.baseUrl + "/signin/", {
+    return fetch(this.baseUrl + "/cards", {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({ email, password }),
