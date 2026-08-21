@@ -6,7 +6,7 @@ class Auth {
   }
 
   signIn({ email, password }) {
-    return fetch(this.baseUrl + "/signup/", {
+    return fetch(this.baseUrl + "/users", {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({ email, password }),
