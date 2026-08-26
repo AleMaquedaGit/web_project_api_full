@@ -68,7 +68,7 @@ function Login() {
             <span className="error" id="passwordError"></span>
 
             <button className="register" type="submit">
-              Login
+              Login prueba
             </button>
           </form>
 
