@@ -1,14 +1,10 @@
 import card from "../models/card.js";
 
 export const getCards = (req, res) => {
-  fs.readFile("./data/cards.json", "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: "Cannot read users file" });
-    }
-
-    res.json(JSON.parse(data));
-  });
+  card
+    .find({})
+    .then((cards) => res.send(cards))
+    .catch((err) => res.status(500).send({ message: err.message }));
 };
 
 export const createCards = (req, res) => {
