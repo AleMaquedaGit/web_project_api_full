@@ -34,6 +34,7 @@ export const login = async (req, res, next) => {
 
     res.status(200).send({
       message: "Inicio de sesión exitoso",
+      token,
       user: {
         _id: user._id,
         name: user.name,
