@@ -5,11 +5,18 @@ class Api {
     this.headers = options.headers;
   }
 
+  _getHeaders() {
+    return {
+      ...this.headers,
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    };
+  }
+
   getInitialCards() {
     return fetch(this.baseUrl + "/cards/", {
       method: "GET",
       //llamando a la API .Para llamar propiedades del constructor es a travez de"this"
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then((response) => {
       if (response.ok) {
         return response.json(); //es un metodo......
@@ -57,12 +64,12 @@ class Api {
     return fetch(this.baseUrl + "/users/me", {
       method: "GET",
       //llamando a la API .Para llamar propiedades del constructor es a travez de"this"
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then((response) => {
       if (response.ok) {
         return response.json(); //es un metodo
       }
-      throw new Error("Error en la base de datos");
+      throw new Error("Error al obtener usuario");
     });
   }
 
@@ -79,7 +86,7 @@ class Api {
 export const api = new Api({
   baseUrl: "https://api.miproyectotripleten.mooo.com",
   headers: {
-    authorization: "06f1087a-ea72-4331-b20a-47ee42c926d9",
+    // authorization: "06f1087a-ea72-4331-b20a-47ee42c926d9",
     "Content-Type": "application/json",
   },
 });
