@@ -28,7 +28,7 @@ class Api {
   addCard({ name, link }) {
     return fetch(this.baseUrl + "/cards/", {
       method: "POST",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ name, link }),
     }).then((response) => {
       if (!response.ok) {
@@ -44,19 +44,19 @@ class Api {
   removeCard(cardID) {
     return fetch(`${this.baseUrl}/cards/${cardID}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._handleServerResponse);
   }
   liked(cardID, like) {
     return fetch(`${this.baseUrl}/cards/${cardID}/likes`, {
       method: like ? "PUT" : "DELETE",
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._handleServerResponse);
   }
   setUserInfo({ name, about }) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ name, about }),
     }).then(this._handleServerResponse);
   }
@@ -76,7 +76,7 @@ class Api {
   setUserAvatar({ avatar }) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ avatar }),
     }).then(this._handleServerResponse);
   }

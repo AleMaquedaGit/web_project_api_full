@@ -128,3 +128,17 @@ export const createUser = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getCurrentUser = (req, res, next) => {
+  User.findById(req.user._id)
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({
+          message: "Usuario no encontrado",
+        });
+      }
+
+      res.status(200).send(user);
+    })
+    .catch(next);
+};
