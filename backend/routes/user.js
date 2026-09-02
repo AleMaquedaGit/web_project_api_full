@@ -18,6 +18,7 @@ usersRoute.post("/signin", login);
 usersRoute.post("/", createUser);
 usersRoute.get("/", getUsers);
 usersRoute.get("/me", getCurrentUser);
+usersRoute.patch("/me", auth, updateUser);
 
 usersRoute.get("/:id", getUsersId);
 

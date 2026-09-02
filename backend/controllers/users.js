@@ -142,3 +142,31 @@ export const getCurrentUser = (req, res, next) => {
     })
     .catch(next);
 };
+
+export const updateUser = async (req, res, next) => {
+  try {
+    const { name, about } = req.body;
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        name,
+        about,
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
+
+    if (!user) {
+      return res.status(404).send({
+        message: "Usuario no encontrado",
+      });
+    }
+
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+};
