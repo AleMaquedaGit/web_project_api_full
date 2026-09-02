@@ -28,7 +28,7 @@ await mongoose
   .connect("mongodb://localhost:27017/aroundb")
   .then(() => console.log("conectado a Mongo"));
 
-app.use(auth);
+//app.use(auth);
 
 app.use("/cards", cards);
 app.use("/users", users);

@@ -17,12 +17,12 @@ const usersRoute = express.Router();
 
 usersRoute.post("/signin", login);
 usersRoute.post("/", createUser);
-usersRoute.get("/", getUsers);
-usersRoute.get("/me", getCurrentUser);
+usersRoute.get("/", auth, getUsers);
+usersRoute.get("/me", auth, getCurrentUser);
 
-usersRoute.get("/:id", getUsersId);
+usersRoute.get("/:id", auth, getUsersId);
 
-usersRoute.delete("/:id", deleteUsers);
+usersRoute.delete("/:id", auth, deleteUsers);
 usersRoute.patch("/me", auth, updateUser);
 
 export default usersRoute;
