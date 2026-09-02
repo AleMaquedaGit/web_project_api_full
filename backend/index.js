@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cards from "./routes/card.js";
 import users from "./routes/user.js";
 import cors from "cors";
+import auth from "./middlewares/auth.js";
 
 const app = express();
 app.use(cors());
@@ -27,13 +28,7 @@ await mongoose
   .connect("mongodb://localhost:27017/aroundb")
   .then(() => console.log("conectado a Mongo"));
 
-app.use((req, res, next) => {
-  req.user = {
-    _id: "5d8b8592978f8bd833ca8133", // pega el _id del usuario de prueba que creamos en el paso anterior
-  };
-
-  next();
-});
+app.use(auth);
 
 app.use("/cards", cards);
 app.use("/users", users);
