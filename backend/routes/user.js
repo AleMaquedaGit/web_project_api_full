@@ -10,6 +10,7 @@ import {
   deleteUsers,
   login,
   getCurrentUser,
+  updateUser,
 } from "../controllers/users.js";
 
 const usersRoute = express.Router();
