@@ -88,6 +88,7 @@ export default function Main(props) {
         {cards.map((card) => (
           <Card
             card={card}
+            currentUser={currentUser}
             onOpen={onOpen}
             deleteCard={deleteCard}
             likeButton={likeButton}

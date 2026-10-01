@@ -5,7 +5,7 @@ import "../../../blocks/login.css";
 import { useState } from "react";
 import InfoToolTip from "./Popup/InfoToolTip/InfoToolTip";
 
-function SignInForm() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +16,7 @@ function SignInForm() {
   function handleSubmit(e) {
     e.preventDefault();
     auth
-      .signIn({ email, password })
+      .signUp({ email, password })
 
       .then(() => {
         //setSign(true);
@@ -79,4 +79,4 @@ function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default SignUp;

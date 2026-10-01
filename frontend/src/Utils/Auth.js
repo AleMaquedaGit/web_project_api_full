@@ -1,28 +1,27 @@
 class Auth {
   constructor(options) {
-    //en los parentesis solo van parametros (solo para el constructor)
-    this.baseUrl = options.baseUrl; //dentro de las llaves registramos las propiedades que se utilizaran a lo largo de la clase
+    this.baseUrl = options.baseUrl;
     this.headers = options.headers;
   }
 
-  signIn({ email, password }) {
-    return fetch(this.baseUrl + "/users", {
+  // Registrar usuario
+  signUp({ email, password }) {
+    return fetch(this.baseUrl + "/signUp", {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({ email, password }),
     }).then((response) => {
       if (!response.ok) {
-        //si responde ok, entonces significa que si agrego la carta en la API
-        //entonces si la agrego, la vamos a reflejar en la pagina
-        //es un metodo
-        throw new Error("eror al agregar la carta");
+        throw new Error("Error al registrar usuario");
       }
+
       return response.json();
     });
   }
 
+  // Iniciar sesión
   logIn({ email, password }) {
-    return fetch(this.baseUrl + "/users/signin", {
+    return fetch(this.baseUrl + "/signIn", {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({ email, password }),
@@ -31,10 +30,10 @@ class Auth {
         if (!response.ok) {
           throw new Error("Error al iniciar sesión");
         }
+
         return response.json();
       })
       .then((data) => {
-        // Si la API devuelve un token JWT
         localStorage.setItem("token", data.token);
         return data;
       });
@@ -42,9 +41,10 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: "https://api.miproyectotripleten.mooo.com",
+  // baseUrl: "https://api.miproyectotripleten.mooo.com",
+  baseUrl: "http://localhost:3000",
+
   headers: {
-    authorization: `Bearer :${localStorage.getItem("token")}`,
     "Content-Type": "application/json",
   },
 });

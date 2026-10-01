@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 import Popup from "./components/Main/Components/Popup/Popup";
 // import api from "./utils/Api.js";
-import SignInForm from "./components/Main/Components/SignInForm";
+import SignUp from "./components/Main/Components/SignUp";
 import NavBar from "./components/Main/Components/NavBar/NavBar";
 import Login from "./components/Main/Components/Login";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -23,7 +23,7 @@ function App() {
         <Header></Header>
 
         <Routes>
-          <Route path="/" element={<SignInForm />} />
+          <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/main"

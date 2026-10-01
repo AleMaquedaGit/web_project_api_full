@@ -5,26 +5,37 @@ const User = mongoose.model(
   new mongoose.Schema({
     name: {
       type: String,
-      required: true,
+
       minlenght: 2,
       maxlenght: 30,
       default: "Usuario",
     },
     about: {
       type: String,
-      required: true,
-      minlenght: 2,
-      maxlenght: 30,
+
+      minlength: 2,
+      maxlength: 30,
       default: "Agrega tu descripción",
     },
     avatar: {
       type: String,
-      required: true,
+
       default:
         "https://images.pexels.com/photos/7241592/pexels-photo-7241592.jpeg",
     },
-    email: { type: String, required: true },
-    password: { type: String, required: true, minlenght: 2, maxlenght: 30 },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 2,
+      maxlength: 128,
+      select: false,
+    },
   }),
 );
 

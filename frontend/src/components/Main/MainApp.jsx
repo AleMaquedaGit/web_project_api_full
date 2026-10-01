@@ -23,7 +23,8 @@ function MainApp() {
 
   const fetchUser = async () => {
     try {
-      const current = await api.getCurrentUser(); //*** */
+      const current = await api.getCurrentUser();
+      console.log(current); //*** */
       setCurrentUser(current);
       //setCards(cards);
     } catch (err) {
@@ -91,28 +92,23 @@ function MainApp() {
   }
 
   async function likeButton(card) {
-    const like = card.isLiked;
-    console.log(card);
-    //like button
     try {
-      await api
-        .liked(card._id, !like)
-        .then((card) => {
-          setCards((state) =>
-            state.map((currentCard) =>
-              currentCard._id === card._id ? NewCard : currentCard,
-            ),
-          );
-        })
-        .then(async () => {
-          const cards = await api.getInitialCards();
-          console.log(cards);
-          setCards(cards);
-        });
+      const isLiked = card.likes.some(
+        (userId) => userId.toString() === currentUser._id.toString(),
+      );
+
+      const newCard = await api.liked(card._id, !isLiked);
+
+      setCards((state) =>
+        state.map((currentCard) =>
+          currentCard._id === newCard._id ? newCard : currentCard,
+        ),
+      );
     } catch (error) {
       console.error(error);
     }
   }
+
   async function handleUpDateUser(data) {
     try {
       console.log(data);
